@@ -1,0 +1,135 @@
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
+
+# Ex 1: Ungrouped hosts, specify before any group headers:
+
+## green.example.com
+## blue.example.com
+## 192.168.100.1
+## 192.168.100.10
+
+# Ex 2: A collection of hosts belonging to the 'webservers' group:
+
+## [webservers]
+## alpha.example.org
+## beta.example.org
+## 192.168.1.100
+## 192.168.1.110
+
+# If you have multiple hosts following a pattern, you can specify
+# them like this:
+
+## www[001:006].example.com
+
+# You can also use ranges for multiple hosts: 
+
+## db-[99:101]-node.example.com
+
+# Ex 3: A collection of database servers in the 'dbservers' group:
+
+## [dbservers]
+##
+## db01.intranet.mydomain.net
+## db02.intranet.mydomain.net
+## 10.25.1.56
+## 10.25.1.57
+
+
+# Ex4: Multiple hosts arranged into groups such as 'Debian' and 'openSUSE':
+
+## [Debian]
+## alpha.example.org
+## beta.example.org
+
+## [openSUSE]
+## green.example.com
+## blue.example.com
+
+ope:
+  hosts:
+    10.8.135.102:
+    10.8.135.55:
+    10.8.135.152:
+    10.8.135.112:
+    10.8.135.195:
+    10.8.135.116:
+    10.8.135.183:
+    10.8.135.234:
+    10.8.135.155:
+    10.8.135.171:
+    10.8.135.34:
+    10.8.135.33:
+    10.8.135.56:
+    10.8.135.135:
+    10.8.135.21:
+    10.8.135.199:
+    10.8.135.87:
+    10.8.135.222:
+    10.8.135.217:
+    10.8.135.120:
+    10.8.135.93:
+    10.8.135.98:
+    10.8.135.20:
+    10.8.135.47:
+    10.8.135.147:
+    10.8.135.188:
+    10.8.135.190:
+    10.8.135.52:
+    10.8.135.191:
+    10.8.135.236:
+sfn:
+  hosts:
+    10.5.66.138:
+    10.5.66.99:
+    10.5.66.207:
+    10.5.66.128:
+    10.5.66.201:
+    10.5.66.171:
+    10.5.66.96:
+    10.5.66.219:
+    10.5.66.21:
+    10.5.66.205:
+    10.5.66.76:
+    10.5.66.68:
+    10.5.66.122:
+    10.5.66.77:
+    10.5.66.119:
+vala:
+  hosts:
+    10.5.201.140:
+    10.5.201.108:
+    10.5.201.54:
+    10.5.201.62:
+    10.5.201.37:
+    10.5.201.129:
+    10.5.201.20:
+    10.5.201.110:
+    10.5.201.106:
+    10.5.201.131:
+    10.5.201.200:
+    10.5.201.198:
+    10.5.201.183:
+valw:
+  hosts:
+    10.6.23.135:
+    10.6.23.100:
+    10.6.23.122:
+    10.6.23.149:
+    10.6.23.104:
+wehi:
+  hosts:
+    10.4.19.73:
+    10.4.19.154:
+    10.4.19.51:
+    10.4.19.201:
+    10.4.19.235:
+test:
+  hosts:
+    10.4.19.67:

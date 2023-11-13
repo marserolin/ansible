@@ -1,0 +1,12 @@
+---
+- name: Configure ssh key auth
+  hosts: all
+  gather_facts: no
+  become: true
+
+  tasks:
+  - name: Copy ssh key to remote host
+    authorized_key:
+      user: dsp
+      state: present
+      key: "{{ lookup('file', '/home/dsp/.ssh/id_rsa.pub') }}"
