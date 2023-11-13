@@ -1,0 +1,13 @@
+---
+- name: Turn off upgrade behavior
+  hosts: all
+  gather_facts: no
+  become: true
+
+  tasks:
+
+  - name: Ensure prompt set to never
+    ansible.builtin.replace:
+      path: /etc/update-manager/release-upgrades
+      regexp: =lts
+      replace: =never

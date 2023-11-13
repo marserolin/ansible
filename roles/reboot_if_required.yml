@@ -1,0 +1,20 @@
+---
+- name: Reboot only if required
+  hosts: all
+  gather_facts: no
+  become: true
+
+  tasks:
+  # Restart required?
+  - name: check if reboot is needed
+    stat: path=/var/run/reboot-required
+    register: check_reboot
+
+  # Ends playbook if the file DOES NOT exist
+  - meta: end_host
+    when: not check_reboot.stat.exists
+
+  # Initate system restart
+  - name: reboot system
+    reboot:
+      reboot_timeout: 300

@@ -1,0 +1,8 @@
+---
+- name: Get MAC addresses
+  hosts: all
+
+  tasks:
+  - name: Find NICs MAC
+    ansible.builtin.debug:
+      msg: "{{ansible_default_ipv4['address']|default(None) }}={{ ansible_default_ipv4['macaddress']|default(None) }}"

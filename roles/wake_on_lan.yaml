@@ -1,0 +1,10 @@
+---
+- name: Wake on LAN
+  hosts: test
+
+  tasks:
+  - name: Send a magic Wake-on-LAN packet to 48:21:0b:51:da:64
+    community.general.wakeonlan:
+      mac: '48:21:0b:51:da:64'
+      broadcast: 10.4.19.67
+    delegate_to: localhost

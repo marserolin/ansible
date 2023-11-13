@@ -1,0 +1,8 @@
+---
+- name: Get system board name
+  hosts: all
+
+  tasks:
+  - name: Find system board name
+    ansible.builtin.debug:
+      msg: "{{ ansible_board_name|default(None) }}"

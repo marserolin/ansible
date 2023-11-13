@@ -1,0 +1,10 @@
+---
+- name: Remove snap package
+  hosts: all
+  tasks:
+
+  # Remove "firefox" snap
+  - name: Remove firefox
+    community.general.snap:
+      name: firefox
+      state: absent

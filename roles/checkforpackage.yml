@@ -1,0 +1,16 @@
+---
+- name: Check whether firefox is installed
+  hosts: all
+  tasks:
+  - name: Gather the package facts
+    ansible.builtin.package_facts:
+      manager: auto
+
+  - name: Print the package facts
+    ansible.builtin.debug:
+      var: ansible_facts.packages
+
+  - name: Check whether firefox is installed
+    ansible.builtin.debug:
+      msg: "{{ ansible_facts.packages['firefox'] | length }} versions of firefox are installed!"
+    when: "'firefox' in ansible_facts.packages"

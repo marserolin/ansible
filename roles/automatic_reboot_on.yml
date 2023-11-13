@@ -1,0 +1,41 @@
+---
+- name: Turn automatic reboot ON at 02:00
+  hosts: all
+  gather_facts: no
+  become: true
+
+  tasks:
+  - name: Uncomment Automatic Reboot and set to true
+    ansible.builtin.replace:
+      path: /etc/apt/apt.conf.d/50unattended-upgrades
+      regexp: //Unattended-Upgrade::Automatic-Reboot "false"
+      replace: Unattended-Upgrade::Automatic-Reboot "true"
+    notify:
+    - Restart unattended upgrades
+
+  - name: Uncomment Automatic Reboot with Users
+    ansible.builtin.replace:
+      path: /etc/apt/apt.conf.d/50unattended-upgrades
+      regexp: //Unattended-Upgrade::Automatic-Reboot-WithUsers
+      replace: Unattended-Upgrade::Automatic-Reboot-WithUsers
+    notify:
+    - Restart unattended upgrades
+
+  - name: Uncomment Automatic Reboot Time
+    ansible.builtin.replace:
+      path: /etc/apt/apt.conf.d/50unattended-upgrades
+      regexp: //Unattended-Upgrade::Automatic-Reboot-Time
+      replace: Unattended-Upgrade::Automatic-Reboot-Time
+    notify:
+    - Restart unattended upgrades
+
+  - name: Ensure unattended upgrades is running
+    ansible.builtin.service:
+      name: unattended-upgrades
+      state: started
+
+  handlers:
+  - name: Restart unattended upgrades
+    ansible.builtin.service:
+      name: unattended-upgrades
+      state: restarted
