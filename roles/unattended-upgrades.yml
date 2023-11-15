@@ -1,0 +1,25 @@
+---
+- name: Include main updates
+  hosts: all
+  gather_facts: no
+  become: true
+
+  tasks:
+  - name: Uncomment distro_codename updates
+    ansible.builtin.lineinfile:
+      path: /etc/apt/apt.conf.d/50unattended-upgrades
+      search_string: '{distro_codename}-updates'
+      line: '        "${distro_id}:${distro_codename}-updates;'
+    notify:
+    - Restart unattended upgrades
+
+  - name: Ensure unattended upgrades is running
+    ansible.builtin.service:
+      name: unattended-upgrades
+      state: started
+
+  handlers:
+  - name: Restart unattended upgrades
+    ansible.builtin.service:
+      name: unattended-upgrades
+      state: restarted
