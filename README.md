@@ -29,3 +29,6 @@ Never notify when Ubuntu upgrade is available
 
 wake_on_lan.yaml
 Send WoL magic packet to host
+
+unattended-upgrades.yml
+Includes main updates repo but using ansible.builtin.lineinfile to uncomment line
