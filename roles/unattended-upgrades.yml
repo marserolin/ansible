@@ -9,7 +9,7 @@
     ansible.builtin.lineinfile:
       path: /etc/apt/apt.conf.d/50unattended-upgrades
       search_string: '{distro_codename}-updates'
-      line: '        "${distro_id}:${distro_codename}-updates;'
+      line: '//      "${distro_id}:${distro_codename}-updates;'
     notify:
     - Restart unattended upgrades
 

@@ -1,0 +1,10 @@
+---
+- name: Update OptiSigns
+  hosts: all
+  gather_facts: no
+  become: no
+
+  tasks:
+  - name: Run manual_update.sh script
+    ansible.builtin.shell: /home/dsp/bin/manual_update.sh >> updatelog.txt
+
